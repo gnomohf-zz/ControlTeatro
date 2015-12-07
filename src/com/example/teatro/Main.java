@@ -80,7 +80,7 @@ public static class PlaceholderFragment extends Fragment {
 
 protected void onResume(){
 	super.onResume();
-
+//Aca comienzo
 	blth = new ControladorBT(getApplicationContext());
 	
 	texto = (TextView) findViewById(R.id.textView1);
