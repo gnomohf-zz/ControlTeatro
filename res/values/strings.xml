@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="buttonConnect">Conectar BlueTooth</string>
     <string name="buttonSend">Enviar Dato</string>
+    <string name="fieldMsj"/>
 
 </resources>

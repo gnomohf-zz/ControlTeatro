@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class Main extends ActionBarActivity {
 	private BluetoothDevice device;
 	private ControladorBT blth;
 	private TextView texto;
+	private EditText mensaje;
 	private int i;
 	private String numero;
 	
@@ -111,7 +113,7 @@ protected void onResume(){
 			
 			numero= Integer.toString(i);
 			
-			 texto.setText(numero);
+			texto.setText(numero);
 		}
 	});
 	
@@ -125,13 +127,14 @@ protected void onResume(){
 			{
 				i++;
 				
-				numero= Integer.toString(i);
+				//numero= Integer.toString(i);
+				
+				mensaje = (EditText) findViewById(R.id.fieldMsj);///Luego usar el tipo de dato que sea necesario
 				
 				
 				
 				
-				
-				blth.Enviar(numero);
+				blth.Enviar(mensaje.getText().toString());
 				
 				
 				
