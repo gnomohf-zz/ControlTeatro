@@ -2,9 +2,9 @@ package com.example.teatro;
 
 public class Comando {
 	
-	private char comandoId;
-	private char velocidad;
-	private char direccion;
+	private byte comandoId;
+	private byte velocidad;
+	private byte direccion;
 	
 	
 	
@@ -17,33 +17,33 @@ public class Comando {
 	
 	public Comando(char x,char y, char z)
 	{
-		comandoId=x;
-		velocidad=y;
-		direccion=z;
+		comandoId=(byte)x;
+		velocidad=(byte)y;
+		direccion=(byte)z;
 	}
 
-	public char getComandoId() {
+	public byte getComandoId() {
 		return comandoId;
 	}
 
-	public void setComandoId(char comando) {
-		this.comandoId = comando;
+	public void setComandoId(byte comando) {
+		this.comandoId = (byte)comando;
 	}
 
 	public char getVelocidad() {
-		return velocidad;
+		return (char)velocidad;
 	}
 
 	public void setVelocidad(char velocidad) {
-		this.velocidad = velocidad;
+		this.velocidad = (byte)velocidad;
 	}
 
 	public char getDireccion() {
-		return direccion;
+		return (char)direccion;
 	}
 
 	public void setDireccion(char direccion) {
-		this.direccion = direccion;
+		this.direccion = (byte)direccion;
 	}
 
 	
