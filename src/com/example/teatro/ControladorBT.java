@@ -29,10 +29,20 @@ public class ControladorBT{
 	}
 	
 	public boolean btOn(){
-		return bAdapter.enable();
+		if(bAdapter.isEnabled()){
+			return true;
+		}else{
+			return bAdapter.enable();
+		}
 	}
 	
 	public boolean btOff(){
+		try {
+			btsocket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return bAdapter.disable();
 	}
 	
