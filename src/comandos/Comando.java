@@ -1,9 +1,11 @@
 package comandos;
 
+import java.io.OutputStream;
+
 public interface Comando {
 	
 	
-	public byte[] getComando();
+	public void enviaComando(OutputStream out);
 
 	
 	

@@ -1,5 +1,8 @@
 package comandos;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class CmdMotor implements Comando {
 	
 	private byte comandoId;
@@ -79,13 +82,46 @@ public class CmdMotor implements Comando {
 
 
 	@Override
-	public byte[] getComando() {
+	public void enviaComando(OutputStream out) {
 		// TODO Auto-generated method stub
 		
+		try {
+			///Envio dato por dato
+			out.write(comandoId);
+			out.write(nmotor);
+			out.write(velocidad);
+			out.write(direccion);
+			
+			//dividiendo pasos x byte
+			int a;
+			int b;
+			int c;
+			int d;
+			
+			d = pasos & 0xff;
+			
+			c = pasos & 0xff00;
+			c = c / 100;
+			
+			b = pasos & 0xff0000;
+			b = b / 10000;
+			
+			a = pasos / 1000000;
+			
+			out.write(a);
+			out.write(b);
+			out.write(c);
+			out.write(d);
+			
+			
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
-		
-		return null;
 	}
 
 

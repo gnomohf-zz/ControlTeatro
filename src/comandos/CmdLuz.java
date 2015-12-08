@@ -1,5 +1,8 @@
 package comandos;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class CmdLuz implements Comando {
 	
 	private byte comandoId;
@@ -47,7 +50,7 @@ public class CmdLuz implements Comando {
 		return (char)velocidad;
 	}
 
-	public void setVelocidad(char velocidad) {
+	public void setVelocidad(char velocidad) { 
 		this.velocidad =(byte) velocidad;
 	}
 
@@ -68,9 +71,21 @@ public class CmdLuz implements Comando {
 	}
 	
 	@Override
-	public byte[] getComando() {
+	public void enviaComando(OutputStream out) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		try {
+			out.write(comandoId);
+			out.write(nluz);
+			out.write(velocidad);
+			out.write(direccion);
+			out.write(pasos);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 
