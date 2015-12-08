@@ -89,10 +89,15 @@ public class ControladorBT{
 			
 			out.write(dato.getBytes());
 			
-		} catch (IOException e) {
+		} catch (IOException e) { 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public OutputStream getOut()
+	{
+			return out;
 	}
 		
 }

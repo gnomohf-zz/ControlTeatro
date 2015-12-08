@@ -1,5 +1,6 @@
 package com.example.teatro;
 
+import android.R.integer;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.HeterogeneousExpandableList;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,8 +97,31 @@ protected void onResume(){
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
-
-			if(!blth.btOn())Show_Error("Error al iniciar el BlueTooth");
+			int m = 0x05070402;
+			int r = 0, s = 0, t = 0, u = 0;
+			
+			
+			r = m & 0xff;
+			
+			s = m & 0xff00;
+			s = s / 0x100;
+			
+			t = m & 0xff0000;
+			t = t / 0x10000;
+			
+			u = m / 0x1000000;
+			
+			String zz = Integer.toString(u);
+			zz = zz.concat(" - ");
+			zz = zz.concat(Integer.toString(t));
+			zz = zz.concat(" - ");
+			zz = zz.concat(Integer.toString(s));
+			zz = zz.concat(" - ");
+			zz = zz.concat(Integer.toString(r));
+			
+			texto.setText(zz);
+			
+			/*if(!blth.btOn())Show_Error("Error al iniciar el BlueTooth");
 			
 			 device = blth.isPaired("Agus87BT");
 			
@@ -113,7 +138,7 @@ protected void onResume(){
 			
 			numero= Integer.toString(i);
 			
-			texto.setText(numero);
+			texto.setText(numero);*/
 		}
 	});
 	
