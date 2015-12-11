@@ -3,6 +3,8 @@ package com.example.teatro;
 import android.R.integer;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -24,15 +26,21 @@ import android.widget.Toast;
 public class Main extends ActionBarActivity {
 	
 	private Button buttonConnect;
-	private Button buttonSend;
+	private Button buttonIngresar;
 	private BluetoothDevice device;
 	private ControladorBT blth;
-	private TextView texto;
-	private EditText mensaje;
-	private int i;
-	private String numero;
+	private TextView texto; //Texto arriba de la pantalla principal
 	
-
+	
+	
+	///Variables de prueba
+	private EditText mensaje;///No se usa, estaba de prueba
+	private int i;//De prueba
+	private String numero;//De prueba
+	
+////Fin de la definicion de atributos
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,7 +59,7 @@ public class Main extends ActionBarActivity {
 		return true;
 	}
 
-	//hola
+
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -64,64 +72,51 @@ public class Main extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-	
 
 
-public static class PlaceholderFragment extends Fragment {
-
-	public PlaceholderFragment() {
+	protected void onStart()
+	{
+		super.onStart();
+		if(blth == null)
+		{
+			blth = new ControladorBT(getApplicationContext());
+		}
+		else
+		{
+			Toast.makeText(getApplicationContext(), "Bluetooth ya inicializado(desde onResume)", Toast.LENGTH_SHORT).show();
+		}
+		
 	}
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.main, container, false);
-		return rootView;
-	}
-}
-
-protected void onResume(){
+	protected void onResume(){
 	super.onResume();
 //Aca comienzo
-	blth = new ControladorBT(getApplicationContext());
 	
-	texto = (TextView) findViewById(R.id.textView1);
+	if(blth == null)
+	{
+		blth = new ControladorBT(getApplicationContext());
+	}
+	else
+	{
+		Toast.makeText(getApplicationContext(), "Bluetooth ya inicializado(desde onResume)", Toast.LENGTH_SHORT).show();
+	}
 	
-	i = 0;
-	buttonConnect = (Button) findViewById(R.id.buttonConnect);
-	buttonSend = (Button) findViewById(R.id.buttonSend);
+	texto = (TextView) findViewById(R.id.textView1);//Seguramente no se use//Pongo una referencia del texto en la pantalla por si quiero tocarlo
 	
+
+	/*buttonConnect = (Button) findViewById(R.id.buttonConnect);//Referencia al boton de conectar bluetooth
+	
+	
+	
+	//Listener del boton Conectar Bluetooth
 	buttonConnect.setOnClickListener(new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+		
 			
-			int m = 0x05070402;
-			int r = 0, s = 0, t = 0, u = 0;
-			
-			
-			r = m & 0xff;
-			
-			s = m & 0xff00;
-			s = s / 0x100;
-			
-			t = m & 0xff0000;
-			t = t / 0x10000;
-			
-			u = m / 0x1000000;
-			
-			String zz = Integer.toString(u);
-			zz = zz.concat(" - ");
-			zz = zz.concat(Integer.toString(t));
-			zz = zz.concat(" - ");
-			zz = zz.concat(Integer.toString(s));
-			zz = zz.concat(" - ");
-			zz = zz.concat(Integer.toString(r));
-			
-			texto.setText(zz);
-			
-			/*if(!blth.btOn())Show_Error("Error al iniciar el BlueTooth");
+			if(!blth.btOn())Show_Error("Error al iniciar el BlueTooth");
 			
 			 device = blth.isPaired("Agus87BT");
 			
@@ -134,54 +129,105 @@ protected void onResume(){
 				Toast.makeText(getApplicationContext(), "Dispositivo no Encontrado", Toast.LENGTH_SHORT).show();
 			}
 			
-			i++;
-			
-			numero= Integer.toString(i);
-			
-			texto.setText(numero);*/
 		}
-	});
+	});*/
 	
-	buttonSend.setOnClickListener(new OnClickListener() {
-		
+	/*
+	buttonIngresar = (Button) findViewById(R.id.buttonIngresar);//Referencia al boton "Ingresar"
+	//Listener del Boton "Ingresar" ///Me debe llevar a la pantalla de configuracion
+	buttonIngresar.setOnClickListener(new OnClickListener() {
+	
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
-			if(device != null)
+			//Context context = null;
+			//Aca deberia enviarnos a la pantalla para empezar a realizar la creacion de los comandos
+			Intent act = new Intent(, PantallaA.class);
+		    startActivity(act);
+			
+			/*if(device != null)
 			{
-				i++;
-				
-				//numero= Integer.toString(i);
-				
-				mensaje = (EditText) findViewById(R.id.fieldMsj);///Luego usar el tipo de dato que sea necesario
-				
-				
-				
-				
-				blth.Enviar(mensaje.getText().toString());
-				
 				
 				
 			}
+			else {
+				Toast.makeText(getApplicationContext(), "Debe conectarse al dispositivo", Toast.LENGTH_SHORT).show();
+			}*/
 			
 			
-		}
-	});
+	//	}
+//	});
 	
+}
+
+
+public void conectarBluetooth(View v){
+	
+	if(!blth.btOn())Show_Error("Error al iniciar el BlueTooth");
+	
+	 device = blth.isPaired("Agus87BT");
+	
+	if(device != null){
+		Toast.makeText(getApplicationContext(), "Dispositivo Encontrado", Toast.LENGTH_SHORT).show();
+		blth.Conectar(device);
+		
+		
+	}else{
+		Toast.makeText(getApplicationContext(), "Dispositivo no Encontrado", Toast.LENGTH_SHORT).show();
+	}
 	
 	
 }
 
+public void ingresaraPantallaA(View v){
+	
+	if(device !=null)
+	{
+	Intent act = new Intent(this, PantallaA.class);
+    startActivity(act);
+	}
+	else
+	{
+		Toast.makeText(getApplicationContext(), "Debe conectarse al dispositivo", Toast.LENGTH_SHORT).show();
+	}
+	
+	}
+	
+
 protected void onPause(){
 	super.onPause();
-	blth.btOff();
-	finish();//Toast.makeText(getApplicationContext(), "Dispositivo Encontrado", Toast.LENGTH_SHORT).show();
+	//blth.btOff();
+	//finish(); ///Quite el finish xq sino no se puede 
+	
+	
+	//Toast.makeText(getApplicationContext(), "Dispositivo Encontrado", Toast.LENGTH_SHORT).show();
 //}else{
+}
+
+protected void onStop()
+{
+	super.onStop();
+	blth.btOff();
+	
+	//finish();
+	
 }
 
 private void Show_Error(String Texto){
 	Toast.makeText(getBaseContext(), Texto, Toast.LENGTH_LONG).show();
 	this.onPause();
+}
+
+public static class PlaceholderFragment extends Fragment {
+
+	public PlaceholderFragment() {
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.main, container, false);
+		return rootView;
+	}
 }
 }

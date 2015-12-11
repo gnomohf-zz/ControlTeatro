@@ -14,7 +14,7 @@ public class CmdMotor implements Comando {
 	
 	public CmdMotor()
 	{
-		this.comandoId=0;
+		this.comandoId=(byte)0x30;;
 		this.nmotor=0;
 		this.velocidad=0;
 		this.direccion=0;
