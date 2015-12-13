@@ -31,7 +31,18 @@
             android:name=".PantallaA"
             android:label="@string/title_activity_pantalla" >
         </activity>
-        
+        <activity
+            android:name=".PantallaMotor"
+            android:label="@string/title_activity_pantalla_motor" >
+        </activity>
+        <activity
+            android:name=".PantallaLuz"
+            android:label="@string/title_activity_pantalla_luz"
+            android:parentActivityName=".Main" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.teatro.Main" />
+        </activity>
     </application>
 
 </manifest>

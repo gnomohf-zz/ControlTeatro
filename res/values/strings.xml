@@ -9,7 +9,26 @@
     <string name="fieldMsj" />
     <string name="title_activity_pantalla">PantallaA</string>
     <string name="titulo_PantallaA">Estas en pantallaA</string>
-	<string name="buttonVolver">Volver</string>
-	<string name="buttonMotor">Crear CMD Motor</string>
-	<string name="buttonLuz">Crear CMD Luz</string>
+    <string name="buttonVolver">Volver</string>
+    <string name="buttonMotor">Crear CMD Motor</string>
+    <string name="buttonLuz">Crear CMD Luz</string>
+
+    <!-- AJUSTES DE MOTOR -->
+    <string name="title_activity_pantalla_motor">PantallaMotor</string>
+    <string name="textnmotor">Numero de motor</string>
+    <string name="textvmotor">Velocidad del motor</string>
+    <string name="textdmotor">Direccion del motor</string>
+    <string name="textpmotor">Pasos del motor</string>
+    <string name="enviacmdmotor">Enviar</string>
+    <string name="cargarenacto">Cargar en acto</string>
+   
+    <!-- AJUSTES LUZ -->
+    <string name="title_activity_pantalla_luz">PantallaLuz</string>
+    <string name="textnluz">Numero de Luz</string>
+    <string name="textvluz">Velocidad Luz</string>
+    <string name="textdluz">Direccion Luz</string>
+    <string name="textpluz">Pasos de la Luz</string>
+    <string name="enviacmdluz">Enviar</string>
+    
+
 </resources>

@@ -1,8 +1,11 @@
 package com.example.teatro;
 
+import java.io.OutputStream;
+
 import android.R.integer;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,8 +31,9 @@ public class Main extends ActionBarActivity {
 	private Button buttonConnect;
 	private Button buttonIngresar;
 	private BluetoothDevice device;
+	private BluetoothSocket btsocket;
 	private ControladorBT blth;
-	private TextView texto; //Texto arriba de la pantalla principal
+	private TextView texto;//Texto arriba de la pantalla principal
 	
 	
 	
@@ -76,6 +80,8 @@ public class Main extends ActionBarActivity {
 
 	protected void onStart()
 	{
+		device=null;
+		
 		super.onStart();
 		if(blth == null)
 		{
@@ -100,8 +106,6 @@ public class Main extends ActionBarActivity {
 	{
 		Toast.makeText(getApplicationContext(), "Bluetooth ya inicializado(desde onResume)", Toast.LENGTH_SHORT).show();
 	}
-	
-	texto = (TextView) findViewById(R.id.textView1);//Seguramente no se use//Pongo una referencia del texto en la pantalla por si quiero tocarlo
 	
 
 	/*buttonConnect = (Button) findViewById(R.id.buttonConnect);//Referencia al boton de conectar bluetooth
@@ -185,7 +189,9 @@ public void ingresaraPantallaA(View v){
 	if(device !=null)
 	{
 	Intent act = new Intent(this, PantallaA.class);
-    startActivity(act);
+	startActivity(act);	
+	
+    
 	}
 	else
 	{
@@ -197,21 +203,14 @@ public void ingresaraPantallaA(View v){
 
 protected void onPause(){
 	super.onPause();
-	//blth.btOff();
-	//finish(); ///Quite el finish xq sino no se puede 
 	
-	
-	//Toast.makeText(getApplicationContext(), "Dispositivo Encontrado", Toast.LENGTH_SHORT).show();
-//}else{
 }
 
-protected void onStop()
+
+
+protected void onDestroy()
 {
-	super.onStop();
-	blth.btOff();
-	
-	//finish();
-	
+	//blth.btOff();
 }
 
 private void Show_Error(String Texto){

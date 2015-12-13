@@ -2009,7 +2009,7 @@ containing a value of this type.
         public static final int notification_template_icon_bg=0x7f020046;
     }
     public static final class id {
-        public static final int action0=0x7f0a0057;
+        public static final int action0=0x7f0a006b;
         public static final int action_bar=0x7f0a0041;
         public static final int action_bar_activity_content=0x7f0a0003;
         public static final int action_bar_container=0x7f0a0040;
@@ -2018,26 +2018,28 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0a0022;
         public static final int action_bar_title=0x7f0a0021;
         public static final int action_context_bar=0x7f0a0042;
-        public static final int action_divider=0x7f0a005b;
+        public static final int action_divider=0x7f0a006f;
         public static final int action_menu_divider=0x7f0a0005;
         public static final int action_menu_presenter=0x7f0a0006;
         public static final int action_mode_bar=0x7f0a003e;
         public static final int action_mode_bar_stub=0x7f0a003d;
         public static final int action_mode_close_button=0x7f0a0023;
-        public static final int action_settings=0x7f0a0064;
+        public static final int action_settings=0x7f0a0078;
         public static final int activity_chooser_view_content=0x7f0a0024;
         public static final int alertTitle=0x7f0a0030;
         public static final int always=0x7f0a0019;
         public static final int beginning=0x7f0a001e;
-        public static final int buttonConnect=0x7f0a0054;
-        public static final int buttonIngresar=0x7f0a0056;
+        public static final int buttonConnect=0x7f0a0068;
+        public static final int buttonIngresar=0x7f0a006a;
         public static final int buttonLuz=0x7f0a0052;
         public static final int buttonMotor=0x7f0a0051;
         public static final int buttonPanel=0x7f0a002b;
         public static final int buttonVolver=0x7f0a0053;
-        public static final int cancel_action=0x7f0a0058;
+        public static final int cancel_action=0x7f0a006c;
+        public static final int cargaenacto=0x7f0a005c;
+        public static final int cargarenacto=0x7f0a0067;
         public static final int checkbox=0x7f0a0039;
-        public static final int chronometer=0x7f0a005e;
+        public static final int chronometer=0x7f0a0072;
         public static final int collapseActionView=0x7f0a001a;
         public static final int contentPanel=0x7f0a0031;
         public static final int custom=0x7f0a0037;
@@ -2046,8 +2048,18 @@ containing a value of this type.
         public static final int default_activity_button=0x7f0a0027;
         public static final int disableHome=0x7f0a000d;
         public static final int edit_query=0x7f0a0043;
+        public static final int editdluz=0x7f0a0059;
+        public static final int editdmotor=0x7f0a0063;
+        public static final int editnluz=0x7f0a0055;
+        public static final int editnmotor=0x7f0a005f;
+        public static final int editpluz=0x7f0a005b;
+        public static final int editpmotor=0x7f0a0065;
+        public static final int editvluz=0x7f0a0057;
+        public static final int editvmotor=0x7f0a0061;
         public static final int end=0x7f0a001f;
-        public static final int end_padder=0x7f0a0063;
+        public static final int end_padder=0x7f0a0077;
+        public static final int enviacmdluz=0x7f0a005d;
+        public static final int enviacmdmotor=0x7f0a0066;
         public static final int expand_activities_button=0x7f0a0025;
         public static final int expanded_menu=0x7f0a0038;
         public static final int home=0x7f0a0000;
@@ -2055,12 +2067,12 @@ containing a value of this type.
         public static final int icon=0x7f0a0029;
         public static final int ifRoom=0x7f0a001b;
         public static final int image=0x7f0a0026;
-        public static final int info=0x7f0a0062;
-        public static final int line1=0x7f0a005c;
-        public static final int line3=0x7f0a0060;
+        public static final int info=0x7f0a0076;
+        public static final int line1=0x7f0a0070;
+        public static final int line3=0x7f0a0074;
         public static final int listMode=0x7f0a000a;
         public static final int list_item=0x7f0a0028;
-        public static final int media_actions=0x7f0a005a;
+        public static final int media_actions=0x7f0a006e;
         public static final int middle=0x7f0a0020;
         public static final int multiply=0x7f0a0014;
         public static final int never=0x7f0a001c;
@@ -2094,14 +2106,22 @@ containing a value of this type.
         public static final int src_atop=0x7f0a0016;
         public static final int src_in=0x7f0a0017;
         public static final int src_over=0x7f0a0018;
-        public static final int status_bar_latest_event_content=0x7f0a0059;
+        public static final int status_bar_latest_event_content=0x7f0a006d;
         public static final int submit_area=0x7f0a004c;
         public static final int tabMode=0x7f0a000c;
-        public static final int text=0x7f0a0061;
-        public static final int text2=0x7f0a005f;
+        public static final int text=0x7f0a0075;
+        public static final int text2=0x7f0a0073;
         public static final int textSpacerNoButtons=0x7f0a0034;
-        public static final int textView1=0x7f0a0055;
-        public static final int time=0x7f0a005d;
+        public static final int textView1=0x7f0a0069;
+        public static final int textdluz=0x7f0a0058;
+        public static final int textdmotor=0x7f0a0062;
+        public static final int textnluz=0x7f0a0054;
+        public static final int textnmotor=0x7f0a005e;
+        public static final int textpluz=0x7f0a005a;
+        public static final int textpmotor=0x7f0a0064;
+        public static final int textvluz=0x7f0a0056;
+        public static final int textvmotor=0x7f0a0060;
+        public static final int time=0x7f0a0071;
         public static final int title=0x7f0a002a;
         public static final int title_template=0x7f0a002f;
         public static final int titulo_PantallaA=0x7f0a0050;
@@ -2174,23 +2194,27 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030017;
         public static final int abc_select_dialog_material=0x7f030018;
         public static final int activity_pantalla=0x7f030019;
-        public static final int main=0x7f03001a;
-        public static final int notification_media_action=0x7f03001b;
-        public static final int notification_media_cancel_action=0x7f03001c;
-        public static final int notification_template_big_media=0x7f03001d;
-        public static final int notification_template_big_media_narrow=0x7f03001e;
-        public static final int notification_template_lines=0x7f03001f;
-        public static final int notification_template_media=0x7f030020;
-        public static final int notification_template_part_chronometer=0x7f030021;
-        public static final int notification_template_part_time=0x7f030022;
-        public static final int select_dialog_item_material=0x7f030023;
-        public static final int select_dialog_multichoice_material=0x7f030024;
-        public static final int select_dialog_singlechoice_material=0x7f030025;
-        public static final int support_simple_spinner_dropdown_item=0x7f030026;
+        public static final int activity_pantalla_luz=0x7f03001a;
+        public static final int activity_pantalla_motor=0x7f03001b;
+        public static final int main=0x7f03001c;
+        public static final int notification_media_action=0x7f03001d;
+        public static final int notification_media_cancel_action=0x7f03001e;
+        public static final int notification_template_big_media=0x7f03001f;
+        public static final int notification_template_big_media_narrow=0x7f030020;
+        public static final int notification_template_lines=0x7f030021;
+        public static final int notification_template_media=0x7f030022;
+        public static final int notification_template_part_chronometer=0x7f030023;
+        public static final int notification_template_part_time=0x7f030024;
+        public static final int select_dialog_item_material=0x7f030025;
+        public static final int select_dialog_multichoice_material=0x7f030026;
+        public static final int select_dialog_singlechoice_material=0x7f030027;
+        public static final int support_simple_spinner_dropdown_item=0x7f030028;
     }
     public static final class menu {
         public static final int main=0x7f0e0000;
         public static final int pantalla=0x7f0e0001;
+        public static final int pantalla_luz=0x7f0e0002;
+        public static final int pantalla_motor=0x7f0e0003;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -2265,28 +2289,35 @@ containing a value of this type.
         public static final int buttonLuz=0x7f0b001e;
         public static final int buttonMotor=0x7f0b001d;
         public static final int buttonVolver=0x7f0b001c;
+        public static final int cargarenacto=0x7f0b0025;
+        public static final int enviacmdluz=0x7f0b002b;
+        public static final int enviacmdmotor=0x7f0b0024;
         public static final int fieldMsj=0x7f0b0019;
-        public static final int pref_default_display_name=0x7f0b0024;
-        public static final int pref_description_social_recommendations=0x7f0b0022;
+        public static final int pref_default_display_name=0x7f0b0031;
+        public static final int pref_description_social_recommendations=0x7f0b002f;
         /**  Example settings for Data & Sync 
+ Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f0b0026;
+        public static final int pref_header_data_sync=0x7f0b0033;
         /**  Strings related to Settings 
  Example General settings 
+ Strings related to Settings 
+ Example General settings 
          */
-        public static final int pref_header_general=0x7f0b0020;
+        public static final int pref_header_general=0x7f0b002d;
         /**  Example settings for Notifications 
+ Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f0b0029;
-        public static final int pref_ringtone_silent=0x7f0b002c;
-        public static final int pref_title_add_friends_to_messages=0x7f0b0025;
-        public static final int pref_title_display_name=0x7f0b0023;
-        public static final int pref_title_new_message_notifications=0x7f0b002a;
-        public static final int pref_title_ringtone=0x7f0b002b;
-        public static final int pref_title_social_recommendations=0x7f0b0021;
-        public static final int pref_title_sync_frequency=0x7f0b0027;
-        public static final int pref_title_system_sync_settings=0x7f0b0028;
-        public static final int pref_title_vibrate=0x7f0b002d;
+        public static final int pref_header_notifications=0x7f0b0036;
+        public static final int pref_ringtone_silent=0x7f0b0039;
+        public static final int pref_title_add_friends_to_messages=0x7f0b0032;
+        public static final int pref_title_display_name=0x7f0b0030;
+        public static final int pref_title_new_message_notifications=0x7f0b0037;
+        public static final int pref_title_ringtone=0x7f0b0038;
+        public static final int pref_title_social_recommendations=0x7f0b002e;
+        public static final int pref_title_sync_frequency=0x7f0b0034;
+        public static final int pref_title_system_sync_settings=0x7f0b0035;
+        public static final int pref_title_vibrate=0x7f0b003a;
         /**  Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated. May need to be localized
@@ -2294,9 +2325,23 @@ containing a value of this type.
          [CHAR LIMIT=4] 
          */
         public static final int status_bar_notification_info_overflow=0x7f0b0011;
+        public static final int textdluz=0x7f0b0029;
+        public static final int textdmotor=0x7f0b0022;
+        public static final int textnluz=0x7f0b0027;
+        public static final int textnmotor=0x7f0b0020;
         public static final int texto_prueba=0x7f0b0015;
-        public static final int title_activity_activity_motor=0x7f0b001f;
+        public static final int textpluz=0x7f0b002a;
+        public static final int textpmotor=0x7f0b0023;
+        public static final int textvluz=0x7f0b0028;
+        public static final int textvmotor=0x7f0b0021;
+        public static final int title_activity_activity_motor=0x7f0b002c;
         public static final int title_activity_pantalla=0x7f0b001a;
+        /**  AJUSTES LUZ 
+         */
+        public static final int title_activity_pantalla_luz=0x7f0b0026;
+        /**  AJUSTES DE MOTOR 
+         */
+        public static final int title_activity_pantalla_motor=0x7f0b001f;
         public static final int titulo_PantallaA=0x7f0b001b;
     }
     public static final class style {

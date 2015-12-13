@@ -18,7 +18,8 @@ public class ControladorBT{
 
 	private BluetoothAdapter bAdapter;
 	private Context contexto;
-	private BluetoothSocket btsocket;
+	private static BluetoothSocket btsocket;
+	private static BluetoothDevice btdevice;
 	private static final UUID my_uuid=UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 	private OutputStream out;
 	
@@ -59,21 +60,25 @@ public class ControladorBT{
 		}
 		//BluetoothDevice
 		//BluetoothDevice
+		btdevice = z;
+		
 		return z;
 	}
 	
-	public void Conectar(BluetoothDevice bt)
+	public void Conectar(BluetoothDevice device)
 	{
 		
 		
 		try {
 			
-			btsocket= bt.createRfcommSocketToServiceRecord(my_uuid);
+			btsocket= device.createRfcommSocketToServiceRecord(my_uuid);
 			
 			btsocket.connect();
-			out = btsocket.getOutputStream();
-			String a= "hola";
-			out.write(a.getBytes());
+			//out = btsocket.getOutputStream();
+			//String a= "hola";
+			//out.write(a.getBytes());
+			
+			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -81,7 +86,20 @@ public class ControladorBT{
 		}
 		
 		
+		
+		
 	}
+	
+	public static synchronized BluetoothSocket getSocket(){
+        return btsocket;
+    }
+	
+	
+	public static synchronized void setSocket(BluetoothSocket btsocket)
+	{
+		ControladorBT.btsocket = btsocket;
+	}
+	
 	
 	public void Enviar(String dato)
 	{

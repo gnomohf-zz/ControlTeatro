@@ -3,6 +3,9 @@ package comandos;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import android.content.Context;
+import android.widget.Toast;
+
 public class CmdMotor implements Comando {
 	
 	private byte comandoId;
@@ -11,6 +14,7 @@ public class CmdMotor implements Comando {
 	private byte direccion;
 	private int pasos;
 	
+	private Context CONTEXTO;
 	
 	public CmdMotor()
 	{
@@ -22,7 +26,7 @@ public class CmdMotor implements Comando {
 		
 	}
 	
-	public CmdMotor(char velocidad,char nmotor, char direccion, int pasos) {
+	public CmdMotor(char nmotor,char velocidad, char direccion, int pasos) {
 		
 		this.comandoId = (byte)0x30;
 		this.velocidad = (byte)velocidad;
@@ -63,7 +67,7 @@ public class CmdMotor implements Comando {
 
 
 	public int getPasos() {
-		return pasos;
+		return (int)pasos;
 	}
 
 
@@ -71,13 +75,17 @@ public class CmdMotor implements Comando {
 		this.pasos = pasos;
 	}
 	
-	public byte getNmotor() {
-		return nmotor;
+	public char getNmotor() {
+		return (char)nmotor;
 	}
 
 
 	public void setNmotor(byte nmotor) {
 		this.nmotor = nmotor;
+	}
+	
+	public void setContext(Context contexto){
+		CONTEXTO = contexto;
 	}
 
 
@@ -87,10 +95,11 @@ public class CmdMotor implements Comando {
 		
 		try {
 			///Envio dato por dato
-			out.write(comandoId);
+			/*out.write(comandoId);
 			out.write(nmotor);
 			out.write(velocidad);
 			out.write(direccion);
+			*/
 			
 			//dividiendo pasos x byte
 			int a;
@@ -98,20 +107,36 @@ public class CmdMotor implements Comando {
 			int c;
 			int d;
 			
-			d = pasos & 0xff;
+			d = (byte) (pasos & 0xff);
 			
-			c = pasos & 0xff00;
-			c = c / 100;
+			c = (byte) ((pasos & 0xff00) >> 8);
 			
-			b = pasos & 0xff0000;
-			b = b / 10000;
+			b = (byte) ((pasos & 0xff0000) >> 16);
 			
-			a = pasos / 1000000;
+			a = (byte) ((pasos & 0xff000000) >> 24);
+			//a = (byte) pasos >> 24;
+			//////
 			
-			out.write(a);
-			out.write(b);
-			out.write(c);
-			out.write(d);
+			//Toast.makeText(CONTEXTO, Integer.toString(c), Toast.LENGTH_SHORT).show();
+			
+			byte[] buffer;
+			
+			buffer = new byte[8];
+			
+			buffer[0]=comandoId;
+			buffer[1]=nmotor;
+			buffer[2]=velocidad;
+			buffer[3]=direccion;
+			buffer[4]=(byte)a;
+			buffer[5]=(byte)b;
+			buffer[6]=(byte)c;
+			buffer[7]=(byte)d;
+			
+			out.write(buffer);
+			
+			
+			
+
 			
 			
 			
