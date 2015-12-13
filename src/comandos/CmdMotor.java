@@ -72,6 +72,8 @@ public class CmdMotor implements Comando {
 
 
 	public void setPasos(int pasos) {
+		
+		
 		this.pasos = pasos;
 	}
 	
@@ -80,8 +82,8 @@ public class CmdMotor implements Comando {
 	}
 
 
-	public void setNmotor(byte nmotor) {
-		this.nmotor = nmotor;
+	public void setNmotor(char nmotor) {
+		this.nmotor = (byte)nmotor;
 	}
 	
 	public void setContext(Context contexto){

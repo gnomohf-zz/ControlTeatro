@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.teatro.PantallaA" >
+
+    <TextView
+        android:id="@+id/titulo_PantallaA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/titulo_PantallaA" />
+
+    <Button
+        android:id="@+id/buttonMotor"
+        style="android:buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulo_PantallaA"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:onClick="buttonMotor"
+        android:text="@string/buttonMotor" />
+
+    <Button
+        android:id="@+id/buttonLuz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonMotor"
+        android:layout_alignRight="@+id/buttonMotor"
+        android:layout_below="@+id/buttonMotor"
+        android:layout_marginTop="14dp"
+        android:onClick="buttonLuz"
+        android:text="@string/buttonLuz" />
+
+    <Button
+        android:id="@+id/buttonVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="18dp"
+        android:layout_toLeftOf="@+id/titulo_PantallaA"
+        android:onClick="volverAnterior"
+        android:text="@string/buttonVolver" />
+
+</RelativeLayout>

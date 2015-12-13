@@ -1,0 +1,96 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <CheckedTextView
+            android:id="@+id/textnluz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textnluz" />
+
+        <EditText
+            android:id="@+id/editnluz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" >
+
+            <requestFocus />
+        </EditText>
+
+        <CheckedTextView
+            android:id="@+id/textvluz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textvluz" />
+
+        <EditText
+            android:id="@+id/editvluz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
+        <CheckedTextView
+            android:id="@+id/textdluz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textdluz" />
+
+        <EditText
+            android:id="@+id/editdluz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
+        <CheckedTextView
+            android:id="@+id/textpluz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textpluz" />
+
+        <EditText
+            android:id="@+id/editpluz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/cargaenacto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/enviacmdluz"
+                android:layout_marginRight="19dp"
+                android:layout_marginTop="54dp"
+                android:onClick="cargarEnActo"
+                android:text="@string/cargarenacto" />
+
+            <Button
+                android:id="@+id/enviacmdluz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="57dp"
+                android:onClick="enviacmdLuz"
+                android:text="@string/enviacmdluz" />
+
+        </RelativeLayout>
+
+    </TableLayout>
+    
+    </ScrollView>
