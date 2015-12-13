@@ -8,38 +8,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.teatro.Main" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/texto_prueba" />
-
     <Button
         android:id="@+id/buttonConnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="137dp"
+        android:onClick="conectarBluetooth"
+        android:layout_marginTop="57dp"
         android:text="@string/buttonConnect" />
-
+    
     <Button
-        android:id="@+id/buttonSend"
+        android:id="@+id/buttonIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonConnect"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
-        android:text="@string/buttonSend" />
+        android:onClick="ingresaraPantallaA"
+        android:layout_marginTop="57dp"
+        android:text="@string/buttonIngresar" />
 
-    <EditText
-        android:id="@+id/fieldMsj"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonConnect"
+        android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/buttonConnect"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="55dp"
-        android:ems="10"
-        android:text="@string/fieldMsj" />
+        android:layout_marginTop="72dp"
+        android:text="@string/texto_prueba" />
 
 </RelativeLayout>

@@ -1,0 +1,105 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    >
+    
+   <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        >
+
+    
+
+        <CheckedTextView
+            android:id="@+id/textnmotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textnmotor" />
+
+        <EditText
+            android:id="@+id/editnmotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12" >
+
+            <requestFocus />
+        </EditText>
+
+        <CheckedTextView
+            android:id="@+id/textvmotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textvmotor" />
+
+        <EditText
+            android:id="@+id/editvmotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12" />
+
+        <CheckedTextView
+            android:id="@+id/textdmotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textdmotor" />
+
+        <EditText
+            android:id="@+id/editdmotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12" />
+
+        <CheckedTextView
+            android:id="@+id/textpmotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textpmotor" />
+
+        <EditText
+            android:id="@+id/editpmotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/enviacmdmotor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="42dp"
+                android:onClick="enviacmdMotor"
+                android:text="@string/enviacmdmotor" />
+
+            <Button
+                android:id="@+id/cargarenacto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/enviacmdmotor"
+                android:layout_alignBottom="@+id/enviacmdmotor"
+                android:layout_alignParentRight="true"
+                android:onClick="cargarEnActo"
+                android:layout_marginRight="48dp"
+                android:text="@string/cargarenacto" />
+            
+        </RelativeLayout>
+
+        </TableLayout>
+    </ScrollView>
+
+<!--  </RelativeLayout> -->
