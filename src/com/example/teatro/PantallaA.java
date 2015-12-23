@@ -16,7 +16,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 import comandos.*;
+import sqlite.Handler_db;
 
 
 @SuppressLint("NewApi")
@@ -28,15 +31,30 @@ public class PantallaA extends ActionBarActivity {
 	private BluetoothSocket btsocket;
 	private OutputStream out;
 	
+	
+	//
+	private EditText nombreacto;
+	
+	Handler_db handler = new Handler_db(this);
+	
 	//
 	private ArrayList<Comando> acto; //ArrayList de los comandos
-	
+	public final static int REQ_MOTOR = 1;
+	public final static int REQ_LUZ=2;
+	private String nomacto;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pantalla);
+		
+		
+		this.nombreacto = (EditText) findViewById(R.id.editnombreacto);
+		
+		this.handler = new Handler_db(this);
+		
+		
 	}
 
 	@Override
@@ -99,10 +117,12 @@ protected void onPause(){
 
 
 public void buttonMotor(View v)
-{
+{	
 	//Por ahora deberia llamar a una activity para cargar los datos del motor 
 	Intent act = new Intent(this, PantallaMotor.class);
-    startActivity(act);
+	startActivityForResult(act, REQ_MOTOR);
+	
+    //startActivity(act);
 	
 	
 }
@@ -114,6 +134,65 @@ public void buttonLuz(View v)
 }
 
 
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	Comando comando = new Comando();
+	
+	if(requestCode == REQ_MOTOR) {
+        comando = (Comando) data.getExtras().getSerializable("devolucion_motor");
+    }
+
+    this.acto.add(comando);
+}
+
+
+
+
+
+public void buttonCargarActo(View v)
+{
+	
+	
+	nomacto = new String();
+	
+	nomacto = this.nombreacto.getText().toString();
+	
+	
+	/*
+	//Cargo nombre de acto //Se debe sacar de un edittext
+	if(handler.getActoid(nomacto) == 0)//Si no existe un acto con el mismo nombre
+	{
+		handler.creaActo(nomacto); //creo el acto
+	}
+	else{
+		Toast.makeText(this, "Ya hay un acto con ese nombre", Toast.LENGTH_LONG).show();
+	}
+	*/
+	
+	
+	
+	
+	/*
+	//inserta comandos en tabla comandos - Debo obtener la id del acto creado
+	
+	int actoid = handler.getActoid(nomacto);//Saco la id 
+	
+	for (Comando cmd : acto) {
+		
+			boolean insertado = handler.cargaComando((int)cmd.getComandoid(),Byte.toString(cmd.getNumero()),Byte.toString(cmd.getVelocidad()),Byte.toString(cmd.getDireccion()), Integer.toString(cmd.getPasos()), actoid);
+			
+			if(insertado == true)
+			{
+				Toast.makeText(this, "Se inserto dato correctamente...", Toast.LENGTH_LONG).show();
+			}
+			else
+			{
+				Toast.makeText(this, "No se pudo insertar dato", Toast.LENGTH_LONG).show();
+			}
+		
+	}
+	*/
+	
+}
 
 
 public void volverAnterior(View v){

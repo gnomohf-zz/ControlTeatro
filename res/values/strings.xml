@@ -30,5 +30,7 @@
     <string name="textpluz">Pasos de la Luz</string>
     <string name="enviacmdluz">Enviar</string>
     
+    <!-- Guardar Acto -->
+    <string name="ButtonGuardaActo">Guardar Acto</string>
 
 </resources>

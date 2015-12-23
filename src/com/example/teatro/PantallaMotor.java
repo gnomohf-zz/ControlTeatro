@@ -8,6 +8,7 @@ import java.io.OutputStream;
 
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,13 +17,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
-import comandos.CmdMotor;
+import comandos.Comando;
 
 
 @SuppressLint("NewApi")
 public class PantallaMotor extends ActionBarActivity {
 	
-	private CmdMotor comando;
+	private Comando comando;
 	private EditText nmotor;
 	private EditText velocidad;
 	private EditText direccion;
@@ -110,16 +111,19 @@ private byte Short_To_Byte(short a){
 
 public void enviacmdMotor(View v)
 {
-	comando = new CmdMotor();
+	comando = new Comando();
 	
 	
 	//Tengo toda la data del comando al motor
 	
 	comando.setContext(this.getApplicationContext());
 	
-	comando.setNmotor((char)Integer.parseInt(nmotor.getText().toString()));
+	comando.setNumero((char)Integer.parseInt(nmotor.getText().toString()));
 	comando.setVelocidad((char)Integer.parseInt(velocidad.getText().toString()));
+	
 	comando.setDireccion((char)Integer.parseInt((direccion.getText().toString())));
+	
+	
 	comando.setPasos(Integer.parseInt(pasos.getText().toString()));
 	
 	
@@ -144,9 +148,38 @@ public void enviacmdMotor(View v)
 	
 	
 }
-public void cargarEnActo()
+public void cargarEnActo(View v)
 {
-	//veremos que hace mas adelante
+	
+	//Creo el comando y cargo todo
+	comando = new Comando();
+	
+	
+	//Tengo toda la data del comando al motor
+	
+	//comando.setContext(this.getApplicationContext());
+	comando.setComandoid((byte) 0x30);
+	comando.setNumero((char)Integer.parseInt(nmotor.getText().toString()));
+	comando.setVelocidad((char)Integer.parseInt(velocidad.getText().toString()));
+	
+	comando.setDireccion((char)Integer.parseInt((direccion.getText().toString())));
+	
+	
+	comando.setPasos(Integer.parseInt(pasos.getText().toString()));
+	
+	
+	
+	
+	//Deberia devolver los datos
+	
+	int cod_resultado = 1;
+	
+	Intent resultado = new Intent();
+	resultado.putExtra("devolucion_motor", comando);
+	setResult(cod_resultado, resultado);
+	
+	this.finish();	
+	
 }
 
 

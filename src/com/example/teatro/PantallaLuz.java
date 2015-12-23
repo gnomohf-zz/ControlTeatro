@@ -14,14 +14,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import comandos.CmdLuz;
+import comandos.Comando;
 
 @SuppressLint("NewApi")
 public class PantallaLuz extends ActionBarActivity {
 	
 	
 	
-	private CmdLuz comando;
+	private Comando comando;
 	private EditText nluz;
 	private EditText velocidad;
 	private EditText direccion;
@@ -89,14 +89,15 @@ public class PantallaLuz extends ActionBarActivity {
 	
 	public void enviacmdLuz(View v)
 	{
-		comando = new CmdLuz();
+		comando = new Comando();
 		
 		
 		//Tengo toda la data del comando al motor
-		comando.setNluz((char)Integer.parseInt(nluz.getText().toString()));
+		comando.setComandoid((byte)0x32);
+		comando.setNumero((char)Integer.parseInt(nluz.getText().toString()));
 		comando.setVelocidad((char)Integer.parseInt(velocidad.getText().toString()));
 		comando.setDireccion((char)Integer.parseInt((direccion.getText().toString())));
-		comando.setPasos((char)Integer.parseInt(pasos.getText().toString()));
+		comando.setPasos(Integer.parseInt(pasos.getText().toString()));
 		
 
 		btsocket = ControladorBT.getSocket();

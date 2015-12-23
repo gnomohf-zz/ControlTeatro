@@ -18,17 +18,6 @@
         android:text="@string/titulo_PantallaA" />
 
     <Button
-        android:id="@+id/buttonMotor"
-        style="android:buttonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titulo_PantallaA"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
-        android:onClick="buttonMotor"
-        android:text="@string/buttonMotor" />
-
-    <Button
         android:id="@+id/buttonLuz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,5 +37,38 @@
         android:layout_toLeftOf="@+id/titulo_PantallaA"
         android:onClick="volverAnterior"
         android:text="@string/buttonVolver" />
+
+    <Button
+        android:id="@+id/buttonguardaracto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonLuz"
+        android:layout_below="@+id/buttonLuz"
+        android:layout_marginTop="32dp"
+        android:onClick="guardaActo"
+        android:text="@string/ButtonGuardaActo" />
+
+    <Button
+        android:id="@+id/buttonMotor"
+        style="android:buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonVolver"
+        android:layout_below="@+id/titulo_PantallaA"
+        android:layout_marginTop="14dp"
+        android:onClick="buttonMotor"
+        android:text="@string/buttonMotor" />
+
+    <EditText
+        android:id="@+id/editnombreacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonguardaracto"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/buttonLuz"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
