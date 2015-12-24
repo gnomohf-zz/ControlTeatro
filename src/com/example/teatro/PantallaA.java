@@ -120,9 +120,7 @@ public void buttonMotor(View v)
 {	
 	//Por ahora deberia llamar a una activity para cargar los datos del motor 
 	Intent act = new Intent(this, PantallaMotor.class);
-	startActivityForResult(act, REQ_MOTOR);
-	
-    //startActivity(act);
+	startActivityForResult(act, REQ_MOTOR); 
 	
 	
 }
@@ -130,7 +128,9 @@ public void buttonMotor(View v)
 public void buttonLuz(View v)
 {
 	Intent act = new Intent(this, PantallaLuz.class);
-    startActivity(act);
+    startActivityForResult(act,REQ_LUZ);
+    
+    
 }
 
 
@@ -140,6 +140,10 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	if(requestCode == REQ_MOTOR) {
         comando = (Comando) data.getExtras().getSerializable("devolucion_motor");
     }
+	if(requestCode == REQ_LUZ)
+	{
+		comando = (Comando) data.getExtras().getSerializable("devolucion_luz");
+	}
 
     this.acto.add(comando);
 }

@@ -6,7 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import java.io.IOException;
 import java.io.OutputStream;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -116,12 +118,41 @@ public class PantallaLuz extends ActionBarActivity {
 		
 	}
 
-		
-	public void cargarEnActo()
+	
+	
+	public void cargarEnActo(View v)
 	{
-		//veremos que hace mas adelante
-	}
 		
+		//Creo el comando y cargo todo
+		comando = new Comando();
+		
+		
+		//Tengo toda la data del comando al motor
+		
+		//comando.setContext(this.getApplicationContext());
+		comando.setComandoid((byte) 0x30);
+		comando.setNumero((char)Integer.parseInt(nluz.getText().toString()));
+		comando.setVelocidad((char)Integer.parseInt(velocidad.getText().toString()));
+		
+		comando.setDireccion((char)Integer.parseInt((direccion.getText().toString())));
+		
+		
+		comando.setPasos(Integer.parseInt(pasos.getText().toString()));
+		
+		
+		
+		
+		//Deberia devolver los datos a la instancia de pantallaA
+		
+		//int cod_resultado = 2;
+		
+		Intent resultado = new Intent();
+		resultado.putExtra("devolucion_luz", comando);
+		setResult(Activity.RESULT_OK, resultado);
+		
+		this.finish();	
+		
+	}
 		
 		
 		

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
@@ -170,13 +171,13 @@ public void cargarEnActo(View v)
 	
 	
 	
-	//Deberia devolver los datos
+	//Deberia devolver los datos a la instancia de pantallaA
 	
-	int cod_resultado = 1;
+	//int cod_resultado = 1;
 	
 	Intent resultado = new Intent();
 	resultado.putExtra("devolucion_motor", comando);
-	setResult(cod_resultado, resultado);
+	setResult(Activity.RESULT_OK, resultado);
 	
 	this.finish();	
 	
